@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  php:
+    build:
+      context: ./php-cli
+      dockerfile: Dockerfile
+    container_name: "${CONTAINER_NAME_PREFIX}_php8-cli"
+    volumes:
+      - ${PATH_TO_PROJECT}:/var/www/html/
+    ports:
+      - "8000:80"
+    tty: true
+    stdin_open: true
